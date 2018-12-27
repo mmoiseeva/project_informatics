@@ -8,13 +8,10 @@ class Example(QWidget):
     def __init__(self):
         super().__init__()
         self.initUI()
-        self.button_1.clicked.connect(self.paintEvent)
-        self.button_2.clicked.connect(self.paintEvent)
-        self.button_3.clicked.connect(self.paintEvent)
-        
+ 
     def initUI(self):
-        self.country_list=[['Russia',255,255,255,0,0,255,255,0,0],['Germany',0,0,0,255,0,0,255,255,0],['Estonia',0,0,255,0,0,0,255,255,255],['Armenia',255,0,0,0,0,255,255,69,0],['Bulgaria',255,255,255,46,139,87,255,0,0],['Hungary',255,0,0,255,255,255,46,139,87],['Yemen',255,0,0,255,255,255,0,0,0],['Columbia',255,215,0,0,0,255,255,0,0],['Latvia',255,0,0,255,255,255,255,0,0],['Lithuania',255,215,0,46,139,87,255,0,0],['Luxembourg',255,0,0,255,255,255,32,178,170],['Netherlands',255,0,0,255,255,255,0,0,255]]
-        self.setGeometry(500, 500, 500, 500)
+        self. country_list=[['Russia',255,255,255,0,0,255,255,0,0],['Germany',0,0,0,255,0,0,255,255,0],['Estonia',0,0,255,0,0,0,255,255,255],['Armenia',255,0,0,0,0,255,255,69,0],['Bulgaria',255,255,255,46,139,87,255,0,0],['Hungary',255,0,0,255,255,255,46,139,87],['Yemen',255,0,0,255,255,255,0,0,0],['Columbia',255,215,0,0,0,255,255,0,0],['Latvia',255,0,0,255,255,255,255,0,0],['Lithuania',255,215,0,46,139,87,255,0,0],['Luxembourg',255,0,0,255,255,255,32,178,170],['Netherlands',255,0,0,255,255,255,0,0,255]]
+        self.setGeometry(300, 300, 200, 200)
         self.setWindowTitle('Рисование')
         self.rez = QLabel(self)
         self.rez.setGeometry(30,0,120,30)
@@ -46,12 +43,6 @@ class Example(QWidget):
         qp.begin(self)
         self.drawFlag(qp)
         qp.end()
-        
-    '''def anotherpaintEvent(self, event):
-        qp1 = QPainter()
-        qp1.begin(self)
-        self.drawFlag(qp1)  
-        qp1.end()'''
  
     def drawFlag(self,qp):
         qp.setBrush(self.color1)
@@ -83,15 +74,13 @@ class Example(QWidget):
         elif self.typecontr == 5:
             self.button_1.setText(self.wrongcountry2)
             self.button_2.setText(self.wrongcountry1)
-            self.button_3.setText(self.chosencountry) 
+            self.button_3.setText(self.chosencountry)
  
     def run1(self):
         if self.typecontr == 0 or self.typecontr == 1:
             self.rez.setText("Last Result: True")
         else:
             self.rez.setText("Last Result: False")
-            #self.anotherpaintEvent()
-        self.q()
         self.c1 = randint(0,len(self.country_list)-1)
         self.chosencountry = self.country_list[self.c1][0]
         self.wrongcountry1 = self.country_list[self.c1-1][0]
@@ -106,7 +95,6 @@ class Example(QWidget):
             self.rez.setText("Last Result: True")
         else:
             self.rez.setText("Last Result: False")
-            #self.anotherpaintEvent()
         self.c1 = randint(0,len(self.country_list)-1)
         self.chosencountry = self.country_list[self.c1][0]
         self.wrongcountry1 = self.country_list[self.c1-1][0]
@@ -121,7 +109,6 @@ class Example(QWidget):
             self.rez.setText("Last Result: True")
         else:
             self.rez.setText("Last Result: False")
-            #self.anotherpaintEvent()
         self.c1 = randint(0,len(self.country_list)-1)
         self.chosencountry = self.country_list[self.c1][0]
         self.wrongcountry1 = self.country_list[self.c1-1][0]
